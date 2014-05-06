@@ -13,8 +13,15 @@
 		@include('admin::partials.navbar')
 	</div>
 	<div class="container">
-		{{ Breadcrumbs::render() }}
-		@yield('content')
+		<div class="row navigation-container">
+			@include('admin::partials.menu')
+		</div>
+		<div class="row breadcrumbs-container">
+			{{ Breadcrumbs::render() }}
+		</div>
+		<div class="row content-container">
+			@yield('content')
+		</div>
 	</div>
 </body>
 <!--[if lt IE 9]><script type="text/javascript" src="http://odcvoyage.com/js/html5.js"></script><![endif]-->

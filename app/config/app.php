@@ -121,6 +121,7 @@ return array(
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 		'Creolab\LaravelModules\ServiceProvider',
 		'DaveJamesMiller\Breadcrumbs\ServiceProvider',
+		'Menu\MenuServiceProvider',
 
 	),
 
@@ -188,6 +189,7 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 		'Breadcrumbs' 	  => 'DaveJamesMiller\Breadcrumbs\Facade',
+		'Menu' 			  => 'Menu\Menu',
 
 	),
 

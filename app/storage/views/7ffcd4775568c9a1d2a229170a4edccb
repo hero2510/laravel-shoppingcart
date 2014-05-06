@@ -13,8 +13,15 @@
 		<?php echo $__env->make('admin::partials.navbar', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 	</div>
 	<div class="container">
-		<?php echo Breadcrumbs::render(); ?>
-		<?php echo $__env->yieldContent('content'); ?>
+		<div class="row navigation-container">
+			<?php echo $__env->make('admin::partials.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+		</div>
+		<div class="row breadcrumbs-container">
+			<?php echo Breadcrumbs::render(); ?>
+		</div>
+		<div class="row content-container">
+			<?php echo $__env->yieldContent('content'); ?>
+		</div>
 	</div>
 </body>
 <!--[if lt IE 9]><script type="text/javascript" src="http://odcvoyage.com/js/html5.js"></script><![endif]-->

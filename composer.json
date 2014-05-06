@@ -10,7 +10,8 @@
 		"moltin/tax": "dev-master",
 		"moltin/laravel-cart": "dev-master",
 		"creolab/laravel-modules": "dev-master",
-		"davejamesmiller/laravel-breadcrumbs": "dev-master"
+		"davejamesmiller/laravel-breadcrumbs": "dev-master",
+		"vespakoen/menu": "dev-master"
 	},
 	"autoload": {
 		"classmap": [
