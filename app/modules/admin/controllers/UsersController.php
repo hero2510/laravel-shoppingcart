@@ -10,6 +10,7 @@ class UsersController extends \BaseController{
 		// $users = \DB::select('SELECT * FROM person');
 		// $route = new \Route;
 		// var_dump(get_class());
+		
 		$users = UsersModel::all();
 
 		return View::make('admin::user.list', array('users' => $users));

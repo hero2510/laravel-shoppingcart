@@ -3,7 +3,7 @@ namespace App\Modules\Admin\Models;
 
 class Users extends \Eloquent{
 
-	protected $table = 'user';
+	protected $table = 'users';
 	protected $timestamp = false;
 
 
