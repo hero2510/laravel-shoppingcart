@@ -1,0 +1,16 @@
+{
+    "shop": {
+        "enabled": true,
+        "provider": "App\\Modules\\Shop\\ShopServiceProvider",
+        "name": "shop",
+        "order": 0,
+        "group": "app\/modules"
+    },
+    "admin": {
+        "enabled": true,
+        "provider": "App\\Modules\\Admin\\AdminServiceProvider",
+        "name": "admin",
+        "order": 0,
+        "group": "app\/modules"
+    }
+}
