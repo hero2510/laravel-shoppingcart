@@ -23,7 +23,35 @@ class PermissionsController extends \BaseController{
 		if($id != ''){
 			$role = RolesModel::find($id);
 		}
-		return View::make('admin::role.form', array('role' => $role));
+
+		if(\Request::isMethod('post')){
+			$data = \Input::all();
+			unset($data['ok']);
+			unset($data['_token']);
+			
+			$type = 'add';
+			if($data['id'] != ''){
+				$type = 'edit';
+			}
+
+			switch($type){
+				case 'add':
+					unset($data['id']);
+					$role = new RolesModel;
+				break;
+				case 'edit':
+
+				break;
+			}
+
+			foreach($data as $field => $value){
+				$role->{$field} = $value;
+			}
+			$role->save();
+
+		}
+
+		return View::make('admin::role.form', array('role' => $role, 'id' => $id));
 	}
 
 	// public function edit($id = ''){

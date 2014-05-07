@@ -16,8 +16,8 @@
 			<td>{{{ $role->id }}}</td>
 			<td>{{{ $role->name }}}</td>
 			<td>
-				<a type="button" title="edit" href="{{ Request::root() }}/admin/roles/modify/{{ $role->id }}" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a> 
-				<a type="button" title="edit" href="{{ Request::root() }}/admin/roles/delete/{{ $role->id }}" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
+				<a type="button" title="edit" href="{{ Request::root() }}/admin/permissions/roles/modify/{{ $role->id }}" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a> 
+				<a type="button" title="edit" href="{{ Request::root() }}/admin/permissions/roles/delete/{{ $role->id }}" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
 			</td>
 		</tr>
 

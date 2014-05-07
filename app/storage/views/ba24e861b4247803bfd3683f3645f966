@@ -1,0 +1,29 @@
+<?php $__env->startSection('content'); ?>
+	<table class="table table-striped">
+		<tr>
+			<th style="text-align: center"><input type="checkbox"></th>
+			<th>Order</th>
+			<th>Roles</th>
+			<th>Action</th>
+		</tr>
+		<?php 
+			if(!empty($roles)){
+				foreach($roles as $role){
+					?>
+		<tr>
+			<td align="center"><input type="checkbox"></td>
+			<td><?php echo e($role->id); ?></td>
+			<td><?php echo e($role->name); ?></td>
+			<td>
+				<a type="button" title="edit" href="<?php echo Request::root(); ?>/admin/permissions/roles/modify/<?php echo $role->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a> 
+				<a type="button" title="edit" href="<?php echo Request::root(); ?>/admin/permissions/roles/delete/<?php echo $role->id; ?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
+			</td>
+		</tr>
+
+					<?php
+				}
+			}
+		?>
+	</table>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin::layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

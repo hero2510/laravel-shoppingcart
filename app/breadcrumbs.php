@@ -23,3 +23,7 @@ Breadcrumbs::register('modify_role', function($breadcrumbs){
 	$breadcrumbs->parent('roles');
 	$breadcrumbs->push('Modify Role', route('modify_role'));
 });
+Breadcrumbs::register('modify_role.post', function($breadcrumbs){
+	$breadcrumbs->parent('roles');
+	$breadcrumbs->push('Modify Role', route('modify_role.post'));
+});

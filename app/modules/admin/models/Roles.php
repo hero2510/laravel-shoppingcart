@@ -4,7 +4,7 @@ namespace App\Modules\Admin\Models;
 class Roles extends \Eloquent{
 
 	protected $table;
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	public function __construct(){
 		parent::__construct();
