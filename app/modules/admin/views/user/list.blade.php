@@ -9,7 +9,7 @@
 			<th>Action</th>
 		</tr>
 		<?php 
-			if(!empty($users)){
+			if($users != null){
 				foreach($users as $user){
 					?>
 		<tr>

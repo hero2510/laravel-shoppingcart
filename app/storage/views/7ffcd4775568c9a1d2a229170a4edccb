@@ -5,8 +5,8 @@
         <title>Laravel 4 - Admin</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Le styles -->
-		<link href="<?php echo Request::root(); ?>/public/libraries/bootstrap/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css">
-		<link href="<?php echo Request::root(); ?>/public/styles/admin.css" media="screen" rel="stylesheet" type="text/css">
+		<link href="<?php echo asset('/public/libraries/bootstrap/css/bootstrap.css'); ?>" media="screen" rel="stylesheet" type="text/css">
+		<link href="<?php echo asset('/public/styles/admin.css'); ?>" media="screen" rel="stylesheet" type="text/css">
 	</head>
 <body>
 	<div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
@@ -25,15 +25,14 @@
 	</div>
 </body>
 <!--[if lt IE 9]><script type="text/javascript" src="http://odcvoyage.com/js/html5.js"></script><![endif]-->
-<script type="text/javascript" src="<?php echo Request::root(); ?>/public/libraries/jquery/jquery-2.0.3.min.js"></script>
-<script type="text/javascript" src="<?php echo Request::root(); ?>/public/libraries/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="<?php echo asset('/public/libraries/jquery/jquery-2.0.3.min.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo asset('/public/libraries/bootstrap/js/bootstrap.min.js'); ?>"></script>
 <script type="text/javascript">
-        var _module = 'admin';
         var $app = {
-	                'module': _module,
-	                'controller':'index',
-	                'action':'index'
+	                'module': <?php echo $currentMvc['module']; ?>,
+	                'controller': <?php echo $currentMvc['controller']; ?>,
+	                'action': <?php echo $currentMvc['action']; ?>
 	            };
         </script>
-		<script type="text/javascript" data-main="http://odcvoyage.com/js/admin/main-backbone" src="http://odcvoyage.com/lib/require.js"></script>
+		<script type="text/javascript" data-main="<?php echo asset('/public/libraries/admin/main-backbone'); ?>" src="<?php echo asset('/public/libraries/require.js?v=' . time()); ?>"></script>
 </html>

@@ -2,8 +2,10 @@
 Menu::handler('main', array('class' => 'nav navbar-nav'))
     ->add(Request::root() . '/admin', 'Home')
     ->add(Request::root() . '/admin/users', 'Users')
-    ->add('#', 'More', Menu::items('more')
-        ->add('/blog', 'Blog'));
+    ->add('#', 'Permission', Menu::items('permission')
+        ->add(Request::root() . '/admin/permissions/roles', 'Roles')
+        ->add(Request::root() . '/admin/permissions/resources', 'Resources')
+        ->add(Request::root() . '/admin/permissions/assign', 'Assign'));
 
 Menu::handler('main')->getItemsAtDepth(0)->map(function($item)
   {

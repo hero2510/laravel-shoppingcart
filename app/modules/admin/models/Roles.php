@@ -1,14 +1,14 @@
 <?php
 namespace App\Modules\Admin\Models;
 
-class Users extends \Eloquent{
+class Roles extends \Eloquent{
 
 	protected $table;
 	protected $timestamp = false;
 
 	public function __construct(){
 		parent::__construct();
-		$this->table = \DB::getTablePrefix() . 'users';
+		$this->table = \DB::getTablePrefix() . 'roles';
 	}
 
 }
