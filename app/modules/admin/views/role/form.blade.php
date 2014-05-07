@@ -4,7 +4,7 @@
 		<div class="form-group">
 			{{ Form::label('name', 'Role', array('class' => 'col-sm-2 control-label')) }}
 			<div class="col-sm-10">
-				{{ Form::select('name', null, array('class' => 'form-control input-sm', 'style' => 'width: 20%')) }}
+				{{ Form::text('name', null, array('class' => 'form-control input-sm', 'style' => 'width: 20%')) }}
 			</div>
 		</div>
 		<div class="form-group">
