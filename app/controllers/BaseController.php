@@ -28,8 +28,7 @@ class BaseController extends Controller {
 			'controller' => $this->controller,
 			'action' => $this->action,
 		);
-		\View::share('currentMvc', $currentMvc);
-		
+		\View::share('currentMvc', $currentMvc);	
 	}
 
 	/**

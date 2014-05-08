@@ -1,5 +1,7 @@
 @extends('admin::layouts.master')
 @section('content')
+	{{ Session::has('success') ? '<div class="alert alert-success">' . Session::get('success') .'</div>' : '' }}
+	<a class="btn btn-primary" style="margin-bottom: 10px" href="{{ URL::route('modify_resource') }}">Add New</a>
 	<table class="table table-striped">
 		<tr>
 			<th style="text-align: center"><input type="checkbox"></th>

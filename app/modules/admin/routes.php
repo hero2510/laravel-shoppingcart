@@ -22,6 +22,7 @@ Route::get('/admin/users/edit/{id?}', array('as' => 'edit_user', 'uses' => 'App\
 Route::get('/admin/permissions/roles', array('as' => 'roles', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@showRoles'));
 Route::get('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
 Route::post('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role.post', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
+Route::get('/admin/permissions/roles/delete/{id?}', array('as' => 'delete_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@deleteRole'));
 
 	/* Resources */
 Route::get('/admin/permissions/resources', array('as' => 'resources', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@showResources'));

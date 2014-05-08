@@ -19,4 +19,17 @@ class Roles extends \Eloquent{
 		return $this->hasMany(new Roles, 'parent');
 	}
 
+	public function users(){
+		return $this->hasMany(new Users, 'role');
+	}
+
+	public function delete(){
+		$users = $this->users()->get();
+		foreach($users as $user){
+			$user->role = null;
+			$user->save();
+		}
+		return parent::delete();
+	}
+
 }

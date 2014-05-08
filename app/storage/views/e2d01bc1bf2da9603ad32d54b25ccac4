@@ -2,6 +2,22 @@
 	<?php echo Form::model($resource, array('url' => URL::route('modify_resource', array('id' => $id)), 'method' => 'post', 'resource' => 'form', 'class' => 'form-horizontal')); ?>
 		<input type="hidden" name="id" value="<?php echo $id; ?>">
 		<div class="form-group">
+			<?php echo Form::label('parent', 'Module', array('class' => 'col-sm-2 control-label')); ?>
+			<div class="col-sm-10">
+				<?php echo Form::select(
+					'parent',
+					$modules,
+					null,
+					array('class' => 'form-control input-sm', 'style' => 'width: 20%')); ?>
+			</div>
+		</div>		
+		<div class="form-group">
+			<?php echo Form::label('title', 'Title', array('class' => 'col-sm-2 control-label')); ?>
+			<div class="col-sm-10">
+				<?php echo Form::text('title', null, array('class' => 'form-control input-sm', 'style' => 'width: 20%')); ?>
+			</div>
+		</div>
+		<div class="form-group">
 			<?php echo Form::label('name', 'Resource', array('class' => 'col-sm-2 control-label')); ?>
 			<div class="col-sm-10">
 				<?php echo Form::text('name', null, array('class' => 'form-control input-sm', 'style' => 'width: 20%')); ?>

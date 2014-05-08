@@ -4,7 +4,6 @@ namespace App\Modules\Admin\Controllers;
 use View,
 	App\Modules\Admin\Models\Roles as RolesModel,
 	App\Modules\Admin\Models\Resources as ResourcesModel;
-	// App\Modules\Admin\Models\Roles as RolesModel;
 
 class PermissionsController extends \BaseController{
 
@@ -25,7 +24,7 @@ class PermissionsController extends \BaseController{
 		);
 		$role = '';
 		if($id != ''){
-			$role = RolesModel::find($id);
+			$role = RolesModel::findOrFail($id);			
 		}
 
 		if(\Request::isMethod('post')){
@@ -52,14 +51,30 @@ class PermissionsController extends \BaseController{
 			if($validator->fails()){
 				return View::make('admin::role.form', array('role' => $role, 'id' => $id, 'error_messages' => $validator->messages()->toArray()));
 			}
-			foreach($data as $field => $value){
-				$role->{$field} = $value;
+
+			try{
+				foreach($data as $field => $value){
+					$role->{$field} = $value;
+				}
+				$role->save();
+				return \Redirect::route('roles')->with('success', '<strong>Success! </strong>Your action is done.');
+			}catch(\Exception $e){
+				echo $e->getMessage();
 			}
-			$role->save();
 
 		}
 
 		return View::make('admin::role.form', array('role' => $role, 'id' => $id));
+	}
+
+	public function deleteRole($id = ''){
+		try{
+			$role = RolesModel::find($id);
+			$role->delete();
+			return \Redirect::route('roles')->with('success', '<strong>Success! </strong>Your action is finished.');
+		}catch(\Exception $e){
+			return \Redirect::route('roles')->with('fail', '<strong>Fail! </strong>Something went wrong.');
+		}
 	}
 
 	/* ----- Resources ----- */
@@ -75,11 +90,19 @@ class PermissionsController extends \BaseController{
 
 	public function modifyResource($id = ''){
 		$rules = array(
-			'name' => 'required|unique:roles,name,' . $id,
+			'name' => 'required|unique:resources,name,' . $id,
 		);
+		$resources = ResourcesModel::where('parent', null)->get()->toArray();
+		$modules[] = 'Choose Module';
+		
+		foreach($resources as $item){
+			$modules[$item['id']] = $item['name'];
+		}
+		unset($resources);
+
 		$resource = '';
 		if($id != ''){
-			$resource = ResourcesModel::find($id);
+			$resource = ResourcesModel::findOrFail($id);
 		}
 
 		if(\Request::isMethod('post')){
@@ -102,9 +125,13 @@ class PermissionsController extends \BaseController{
 				break;
 			}
 
+			if($data['parent'] == 0){
+				unset($data['parent']);
+			}
+
 			$validator = \Validator::make($data, $rules);
 			if($validator->fails()){
-				return View::make('admin::resource.form', array('resource' => $role, 'id' => $id, 'error_messages' => $validator->messages()->toArray()));
+				return View::make('admin::resource.form', array('resource' => $resource, 'id' => $id, 'modules' => $modules, 'error_messages' => $validator->messages()->toArray()));
 			}
 			foreach($data as $field => $value){
 				$resource->{$field} = $value;
@@ -113,7 +140,7 @@ class PermissionsController extends \BaseController{
 
 		}
 
-		return View::make('admin::resource.form', array('resource' => $resource, 'id' => $id));
+		return View::make('admin::resource.form', array('resource' => $resource, 'id' => $id, 'modules' => $modules));
 	}
 
 }
