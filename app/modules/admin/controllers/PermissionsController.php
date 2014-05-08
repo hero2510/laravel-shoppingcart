@@ -143,4 +143,20 @@ class PermissionsController extends \BaseController{
 		return View::make('admin::resource.form', array('resource' => $resource, 'id' => $id, 'modules' => $modules));
 	}
 
+	public function deleteResource($id = ''){
+		try{
+			$resource = ResourcesModel::find($id);
+			$resource->delete();
+			return \Redirect::route('resources')->with('success', '<strong>Success! </strong>Your action is finished.');
+		}catch(\Exception $e){
+			return \Redirect::route('resources')->with('fail', '<strong>Fail! </strong>Something went wrong.');
+		}
+	}
+
+	/* ----- Grant Access ----- */
+	public function grantAccessForRole($id = ''){
+		$modules = ResourcesModel::where('parent', null)->get()->toArray();
+		return View::make('admin::role.grant_access', array('modules' => $modules));
+	}
+
 }

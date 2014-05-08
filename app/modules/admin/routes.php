@@ -23,6 +23,7 @@ Route::get('/admin/permissions/roles', array('as' => 'roles', 'uses' => 'App\Mod
 Route::get('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
 Route::post('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role.post', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
 Route::get('/admin/permissions/roles/delete/{id?}', array('as' => 'delete_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@deleteRole'));
+Route::get('/admin/permissions/roles/grant-access/{id?}', array('as' => 'grant_access_for_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@grantAccessForRole'));
 
 	/* Resources */
 Route::get('/admin/permissions/resources', array('as' => 'resources', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@showResources'));

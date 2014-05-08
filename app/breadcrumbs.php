@@ -28,6 +28,11 @@ Breadcrumbs::register('modify_role.post', function($breadcrumbs){
 	$breadcrumbs->push('Modify Role', route('modify_role.post'));
 });
 
+Breadcrumbs::register('grant_access_for_role', function($breadcrumbs){
+	$breadcrumbs->parent('roles');
+	$breadcrumbs->push('Grant Access', route('grant_access_for_role'));
+});
+
 	/* Resources */
 Breadcrumbs::register('resources', function($breadcrumbs){
 	$breadcrumbs->parent('home');

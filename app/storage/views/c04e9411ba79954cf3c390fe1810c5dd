@@ -18,7 +18,7 @@
 			<td><?php echo e($role->name); ?></td>
 			<td>
 				<a type="button" title="Edit" href="<?php echo Request::root(); ?>/admin/permissions/roles/modify/<?php echo $role->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a>
-				<a type="button" title="Grant Access" href="/admin/permissions/roles/grant-access/<?php echo $role->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-lock"></a>
+				<a type="button" title="Grant Access" href="<?php echo Request::root(); ?>/admin/permissions/roles/grant-access/<?php echo $role->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-lock"></a>
 				<a type="button" title="Delete" href="<?php echo Request::root(); ?>/admin/permissions/roles/delete/<?php echo $role->id; ?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
 			</td>
 		</tr>
