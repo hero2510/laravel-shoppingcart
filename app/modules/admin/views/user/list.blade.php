@@ -18,8 +18,8 @@
 			<td>{{{ $user->username }}}</td>
 			<td>{{{ $user->email }}}</td>
 			<td>
-				<a type="button" title="edit" href="/admin/users/edit/{{ $user->id }}" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a> 
-				<a type="button" title="edit" href="/admin/users/delete/{{ $user->id }}" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
+				<a type="button" title="Edit" href="/admin/users/edit/{{ $user->id }}" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a>
+				<a type="button" title="Delete" href="/admin/users/delete/{{ $user->id }}" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
 			</td>
 		</tr>
 

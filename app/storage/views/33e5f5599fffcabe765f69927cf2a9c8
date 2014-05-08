@@ -17,8 +17,8 @@
 			<td><?php echo e($user->username); ?></td>
 			<td><?php echo e($user->email); ?></td>
 			<td>
-				<a type="button" title="edit" href="/admin/users/edit/<?php echo $user->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a> 
-				<a type="button" title="edit" href="/admin/users/delete/<?php echo $user->id; ?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
+				<a type="button" title="Edit" href="/admin/users/edit/<?php echo $user->id; ?>" class="btn btn-warning btn-sm glyphicon glyphicon-pencil"></a>
+				<a type="button" title="Delete" href="/admin/users/delete/<?php echo $user->id; ?>" class="btn btn-danger btn-sm glyphicon glyphicon-trash"></a>
 			</td>
 		</tr>
 

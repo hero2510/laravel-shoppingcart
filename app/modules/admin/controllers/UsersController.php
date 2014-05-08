@@ -23,4 +23,6 @@ class UsersController extends \BaseController{
 		// var_dump(\Input::all());die;
 	}
 
+	
+
 }

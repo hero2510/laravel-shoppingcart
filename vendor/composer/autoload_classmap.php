@@ -10,6 +10,7 @@ return array(
     'App\\Modules\\Admin\\Controllers\\HomeController' => $baseDir . '/app/modules/admin/controllers/HomeController.php',
     'App\\Modules\\Admin\\Controllers\\PermissionsController' => $baseDir . '/app/modules/admin/controllers/PermissionsController.php',
     'App\\Modules\\Admin\\Controllers\\UsersController' => $baseDir . '/app/modules/admin/controllers/UsersController.php',
+    'App\\Modules\\Admin\\Models\\Resources' => $baseDir . '/app/modules/admin/models/Resources.php',
     'App\\Modules\\Admin\\Models\\Roles' => $baseDir . '/app/modules/admin/models/Roles.php',
     'App\\Modules\\Admin\\Models\\Users' => $baseDir . '/app/modules/admin/models/Users.php',
     'App\\Modules\\Shop\\Controllers\\ShopController' => $baseDir . '/app/modules/shop/controllers/ShopController.php',

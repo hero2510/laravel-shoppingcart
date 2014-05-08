@@ -2,12 +2,13 @@
 namespace App\Modules\Admin\Controllers;
 
 use View,
-	App\Modules\Admin\Models\Roles as RolesModel;
-	// App\Modules\Admin\Models\Roles as RolesModel,
+	App\Modules\Admin\Models\Roles as RolesModel,
+	App\Modules\Admin\Models\Resources as ResourcesModel;
 	// App\Modules\Admin\Models\Roles as RolesModel;
 
 class PermissionsController extends \BaseController{
 
+	/* ----- Roles ----- */
 	public function showRoles(){
 		// $users = \DB::select('SELECT * FROM person');
 		// $route = new \Route;
@@ -19,6 +20,9 @@ class PermissionsController extends \BaseController{
 	}
 
 	public function modifyRole($id = ''){
+		$rules = array(
+			'name' => 'required|unique:roles,name,' . $id,
+		);
 		$role = '';
 		if($id != ''){
 			$role = RolesModel::find($id);
@@ -44,6 +48,10 @@ class PermissionsController extends \BaseController{
 				break;
 			}
 
+			$validator = \Validator::make($data, $rules);
+			if($validator->fails()){
+				return View::make('admin::role.form', array('role' => $role, 'id' => $id, 'error_messages' => $validator->messages()->toArray()));
+			}
 			foreach($data as $field => $value){
 				$role->{$field} = $value;
 			}
@@ -54,11 +62,58 @@ class PermissionsController extends \BaseController{
 		return View::make('admin::role.form', array('role' => $role, 'id' => $id));
 	}
 
-	// public function edit($id = ''){
-	// 	$user = UsersModel::find($id);
-	// 	echo $user->username;die;
-	// 	var_dump($user);die;
-	// 	// var_dump(\Input::all());die;
-	// }
+	/* ----- Resources ----- */
+	public function showResources(){
+		// $users = \DB::select('SELECT * FROM person');
+		// $route = new \Route;
+		// var_dump(get_class());
+
+		$resources = ResourcesModel::all();
+
+		return View::make('admin::resource.list', array('resources' => $resources));
+	}
+
+	public function modifyResource($id = ''){
+		$rules = array(
+			'name' => 'required|unique:roles,name,' . $id,
+		);
+		$resource = '';
+		if($id != ''){
+			$resource = ResourcesModel::find($id);
+		}
+
+		if(\Request::isMethod('post')){
+			$data = \Input::all();
+			unset($data['ok']);
+			unset($data['_token']);
+			
+			$type = 'add';
+			if($data['id'] != ''){
+				$type = 'edit';
+			}
+
+			switch($type){
+				case 'add':
+					unset($data['id']);
+					$resource = new ResourcesModel;
+				break;
+				case 'edit':
+
+				break;
+			}
+
+			$validator = \Validator::make($data, $rules);
+			if($validator->fails()){
+				return View::make('admin::resource.form', array('resource' => $role, 'id' => $id, 'error_messages' => $validator->messages()->toArray()));
+			}
+			foreach($data as $field => $value){
+				$resource->{$field} = $value;
+			}
+			$resource->save();
+
+		}
+
+		return View::make('admin::resource.form', array('resource' => $resource, 'id' => $id));
+	}
 
 }

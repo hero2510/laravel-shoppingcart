@@ -18,9 +18,14 @@ Route::get('/admin/users', array('as' => 'users', 'uses' => 'App\Modules\Admin\C
 Route::get('/admin/users/edit/{id?}', array('as' => 'edit_user', 'uses' => 'App\Modules\Admin\Controllers\UsersController@edit'));
 
 // Permission Section
-/* Roles */
+	/* Roles */
 Route::get('/admin/permissions/roles', array('as' => 'roles', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@showRoles'));
 Route::get('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
 Route::post('/admin/permissions/roles/modify/{id?}', array('as' => 'modify_role.post', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyRole'));
+
+	/* Resources */
+Route::get('/admin/permissions/resources', array('as' => 'resources', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@showResources'));
+Route::get('/admin/permissions/resources/modify/{id?}', array('as' => 'modify_resource', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyResource'));
+Route::post('/admin/permissions/resources/modify/{id?}', array('as' => 'modify_resource.post', 'uses' => 'App\Modules\Admin\Controllers\PermissionsController@modifyResource'));
 // Route::get('/admin/users/edit/{id?}', function($id = ''){echo $id;die;});//array('as' => 'edit_user', 'uses' > 'App\Modules\Admin\Controllers\UsersController@edit'));
 // Route::get('/admin/users/edit/{id?}', array('as' => 'edit_user', 'uses' => 'App\Modules\Admin\Controllers\UsersController@edit'));
