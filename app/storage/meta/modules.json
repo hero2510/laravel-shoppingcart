@@ -12,5 +12,12 @@
         "name": "admin",
         "order": 0,
         "group": "app\/modules"
+    },
+    "auth": {
+        "enabled": true,
+        "provider": "App\\Modules\\Auth\\AuthServiceProvider",
+        "name": "auth",
+        "order": 0,
+        "group": "app\/modules"
     }
 }

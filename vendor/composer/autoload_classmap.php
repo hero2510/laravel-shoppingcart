@@ -13,6 +13,8 @@ return array(
     'App\\Modules\\Admin\\Models\\Resources' => $baseDir . '/app/modules/admin/models/Resources.php',
     'App\\Modules\\Admin\\Models\\Roles' => $baseDir . '/app/modules/admin/models/Roles.php',
     'App\\Modules\\Admin\\Models\\Users' => $baseDir . '/app/modules/admin/models/Users.php',
+    'App\\Modules\\Auth\\AuthServiceProvider' => $baseDir . '/app/modules/auth/AuthServiceProvider.php',
+    'App\\Modules\\Auth\\Controllers\\IndexController' => $baseDir . '/app/modules/auth/controllers/IndexController.php',
     'App\\Modules\\Shop\\Controllers\\ShopController' => $baseDir . '/app/modules/shop/controllers/ShopController.php',
     'App\\Modules\\Shop\\ShopServiceProvider' => $baseDir . '/app/modules/shop/ShopServiceProvider.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',

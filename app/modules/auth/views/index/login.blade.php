@@ -2,26 +2,31 @@
 <html lang="fr">
     <head>
         <meta charset="utf-8">
-        <title>Laravel 4 - Admin</title>
+        <title>Laravel 4 - Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Le styles -->
 		<link href="{{ asset('/public/libraries/bootstrap/css/bootstrap.css') }}" media="screen" rel="stylesheet" type="text/css">
 		<link href="{{ asset('/public/styles/admin.css') }}" media="screen" rel="stylesheet" type="text/css">
 	</head>
 <body>
-	<div role="navigation" class="navbar navbar-fixed-top navbar-inverse">
-		@include('admin::partials.navbar')
-	</div>
-	<div class="container">
-		<div class="row navigation-container">
-			@include('admin::partials.menu')
-		</div>
-		<div class="row breadcrumbs-container">
-			{{ Breadcrumbs::render() }}
-		</div>
-		<div class="row content-container">
-			@yield('content')
-		</div>
+	<div class="container" style="width: 300px">
+		{{ Form::open(array('class' => 'form-horizontal', 'role' => 'form')) }}
+			<div class="form-group">
+				{{ Form::label('username', 'Username', array('class' => 'col-sm-4 control-label')) }}
+				<div class="col-sm-8">
+					{{ Form::text('username', null, array('class' => 'form-control')) }}
+				</div>
+			</div>
+			<div class="form-group">
+				{{ Form::label('password', 'Password', array('class' => 'col-sm-4 control-label')) }}
+				<div class="col-sm-8">
+					{{ Form::password('password', array('class' => 'form-control')) }}
+				</div>
+			</div>
+			<div class="col-sm-4">
+				{{ Form::submit('Login', array('name' => 'login', 'class' => 'btn btn-danger')) }}
+			</div>
+		{{ Form::close() }}
 	</div>
 </body>
 <!--[if lt IE 9]><script type="text/javascript" src="http://odcvoyage.com/js/html5.js"></script><![endif]-->
