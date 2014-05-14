@@ -17,7 +17,7 @@
 			@include('admin::partials.menu')
 		</div>
 		<div class="row breadcrumbs-container">
-			{{ Breadcrumbs::render() }}
+			{{ Breadcrumbs::renderIfExists() }}
 		</div>
 		<div class="row content-container">
 			@yield('content')

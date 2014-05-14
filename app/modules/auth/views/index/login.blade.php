@@ -10,7 +10,7 @@
 	</head>
 <body>
 	<div class="container" style="width: 300px">
-		{{ Form::open(array('class' => 'form-horizontal', 'role' => 'form')) }}
+		{{ Form::open(array('class' => 'form-horizontal', 'role' => 'form', 'method' => 'post', 'url' => URL::route('login'))) }}
 			<div class="form-group">
 				{{ Form::label('username', 'Username', array('class' => 'col-sm-4 control-label')) }}
 				<div class="col-sm-8">

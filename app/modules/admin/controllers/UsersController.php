@@ -6,7 +6,7 @@ use View,
 
 class UsersController extends \BaseController{
 
-	public function show(){
+	public function getShow(){
 		// $users = \DB::select('SELECT * FROM person');
 		// $route = new \Route;
 		// var_dump(get_class());
@@ -16,10 +16,12 @@ class UsersController extends \BaseController{
 		return View::make('admin::user.list', array('users' => $users));
 	}
 
-	public function edit($id = ''){
-		$user = UsersModel::find($id);
-		echo $user->username;die;
-		var_dump($user);die;
+	public function getModify($id = ''){
+		$users = '';
+		if($id != ''){
+			$user = UsersModel::find($id);
+		}
+		return View::make('admin::user.form', array('users' => $users));
 		// var_dump(\Input::all());die;
 	}
 

@@ -17,7 +17,7 @@
 			<?php echo $__env->make('admin::partials.menu', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
 		</div>
 		<div class="row breadcrumbs-container">
-			<?php echo Breadcrumbs::render(); ?>
+			<?php echo Breadcrumbs::renderIfExists(); ?>
 		</div>
 		<div class="row content-container">
 			<?php echo $__env->yieldContent('content'); ?>

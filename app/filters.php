@@ -78,3 +78,12 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+Route::filter('permission', function($route, $request)
+{
+	// print_r($route->getActionName());die;
+	// var_dump(get_class_methods($route));
+	// if(Auth::guest()) return Redirect::guest('login');
+	// echo Auth::user()->role;die;
+});
+
